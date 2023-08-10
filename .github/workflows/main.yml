@@ -8,6 +8,9 @@ on:
       - "**" #any
     tags:
       - "v*.*.*"
+env:
+    TEST_TAG: user/app:test
+    LATEST_TAG: user/app:latest
 
 jobs:
   build:
