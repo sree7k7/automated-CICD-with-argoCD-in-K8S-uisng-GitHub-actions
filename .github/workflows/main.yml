@@ -10,9 +10,8 @@ on:
       - 'main'
 
 env:
-    LATEST_TAG: ${{ secrets.DOCKERHUB_USERNAME }}/windows-app
-    LATES_TAG: ${{ secrets.DOCKERHUB_USERNAME }}
     image_name: windows-app
+    LATEST_TAG: ${{ secrets.DOCKERHUB_USERNAME }}
 
 jobs:
   build:
@@ -61,12 +60,12 @@ jobs:
         with:
           context: .
           load: true
-          tags: ${{ env.LATEST_TAG }}
+          tags: ${{ env.LATES_TAG }}/${{ env.image_name }}
       -
         name: Test
         run: |
-          docker run -d --rm ${{ env.LATEST_TAG }}
-          docker run ${{ env.LATEST_TAG }} echo "${{ env.LATEST_TAG }} -> tested ok!"
+          docker run -d --rm ${{ env.LATES_TAG }}/${{ env.image_name }}
+          docker run ${{ env.LATES_TAG }}/${{ env.image_name }} echo "${{ env.LATES_TAG }}/${{ env.image_name }} -> tested ok!"
       ## ------------------------------
       -
         name: Build and push
