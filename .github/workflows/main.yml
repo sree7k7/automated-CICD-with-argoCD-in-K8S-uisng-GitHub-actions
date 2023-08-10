@@ -3,10 +3,10 @@ on:
   release:
     types: [published]
   push:
-    branches:
-      - "main"
-      - "master"
-      - "**" #any
+    branches: ['release']
+      # - "main"
+      # - "master"
+      # - "**" #any
     # tags:
     #   - "v*.*.*"
 
