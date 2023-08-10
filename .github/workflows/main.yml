@@ -10,8 +10,8 @@ on:
 
 env:
     app_web: cdk
-    TEST_TAG: sree7k7/web-app:test
-    LATEST_TAG: ${{ secrets.DOCKERHUB_USERNAME }}/web-app:latest
+    TEST_TAG: sree7k7/clockboxci:test
+    LATEST_TAG: ${{ secrets.DOCKERHUB_USERNAME }}/clockboxci:latest
 
 jobs:
   build:
