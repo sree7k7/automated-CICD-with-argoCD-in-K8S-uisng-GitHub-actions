@@ -1,15 +1,10 @@
-# syntax=docker/dockerfile:1
-# FROM busybox:latest
-# COPY --chmod=755 <<EOF /app/run.sh
-# #!/bin/sh
-# while true; do
-#  echo -ne "The time is now $(date +%T)\\r"
-#  sleep 1
-# done
-# EOF
-
-# ENTRYPOINT /app/run.sh
-FROM httpd:2.4
-COPY web-app.html /usr/local/apache2/htdocs/index.html
+FROM nginx
+# RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+# RUN service apache2 restart
+# COPY web-app.html /usr/local/apache2/htdocs/index.html
+COPY web-app.html /usr/share/nginx/html/index.html
 EXPOSE 8080
+RUN echo "hello world"
+# RUN sed -i -e 's/Listen 80/Listen 80\nServerName localhost/' /etc/apache2/ports.conf
+
 # ENTRYPOINT ["/usr/local/apache2/htdocs/index.html"]
