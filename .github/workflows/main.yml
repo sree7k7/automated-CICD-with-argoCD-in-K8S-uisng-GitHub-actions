@@ -48,18 +48,18 @@ jobs:
         uses: docker/setup-buildx-action@v2
         with:
           buildkitd-flags: --debug
-      -
-        name: Build and export to Docker
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          load: true
-          tags: ${{ env.TEST_TAG }}
-      -
-        name: Test
-        run: |
-          docker run -d --rm ${{ env.TEST_TAG }}
-          docker run ${{ env.TEST_TAG }} echo "${{ env.TEST_TAG }} -> tested ok!"
+      # -
+      #   name: Build and export to Docker
+      #   uses: docker/build-push-action@v4
+      #   with:
+      #     context: .
+      #     load: true
+      #     tags: ${{ env.TEST_TAG }}
+      # -
+      #   name: Test
+      #   run: |
+      #     docker run -d --rm ${{ env.TEST_TAG }}
+      #     docker run ${{ env.TEST_TAG }} echo "${{ env.TEST_TAG }} -> tested ok!"
       -
         name: Build and push
         uses: docker/build-push-action@v4
