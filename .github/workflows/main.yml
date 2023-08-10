@@ -1,5 +1,4 @@
 name: ci
-
 on:
   push:
     branches:
@@ -8,9 +7,11 @@ on:
       - "**" #any
     tags:
       - "v*.*.*"
+
 env:
-    TEST_TAG: user/app:test
-    LATEST_TAG: user/app:latest
+    app_web: cdk
+    TEST_TAG: ${{ secrets.DOCKERHUB_USERNAME }}/web-app:test
+    LATEST_TAG: ${{ secrets.DOCKERHUB_USERNAME }}/web-app:latest
 
 jobs:
   build:
@@ -49,11 +50,15 @@ jobs:
         with:
           buildkitd-flags: --debug
       -
+        name: Test
+        run: |
+          docker run --rm ${{ env.TEST_TAG }}
+      -
         name: Build and push
         uses: docker/build-push-action@v4
         with:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
+          tags: ${{ env.LATEST_TAG }}
           labels: ${{ steps.meta.outputs.labels }}
