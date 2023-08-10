@@ -10,7 +10,6 @@ on:
       - '*'
 
 env:
-    app_web: cdk
     LATEST_TAG: ${{ secrets.DOCKERHUB_USERNAME }}/windows-app
 
 jobs:
