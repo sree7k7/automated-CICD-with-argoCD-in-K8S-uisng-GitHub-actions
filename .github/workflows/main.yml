@@ -60,6 +60,7 @@ jobs:
         name: Test
         run: |
           docker run -d --rm ${{ env.TEST_TAG }}
+          docker run ${{ env.TEST_TAG }} echo "${{ env.TEST_TAG }} -> tested ok!"
       -
         name: Build and push
         uses: docker/build-push-action@v4
