@@ -11,8 +11,7 @@ on:
 
 env:
     app_web: cdk
-    TEST_TAG: ${{ secrets.DOCKERHUB_USERNAME }}/windows-app:test
-    LATEST_TAG: ${{ secrets.DOCKERHUB_USERNAME }}/windows-app:latest
+    LATEST_TAG: ${{ secrets.DOCKERHUB_USERNAME }}/windows-app
 
 jobs:
   build:
@@ -60,7 +59,7 @@ jobs:
         with:
           context: .
           load: true
-          tags: ${{ env.TEST_TAG }}
+          tags: ${{ env.LATEST_TAG }}
       -
         name: Test
         run: |
