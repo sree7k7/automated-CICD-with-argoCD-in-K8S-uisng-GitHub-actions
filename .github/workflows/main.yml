@@ -62,8 +62,8 @@ jobs:
       -
         name: Test
         run: |
-          docker run -d --rm ${{ env.TEST_TAG }}
-          docker run ${{ env.TEST_TAG }} echo "${{ env.TEST_TAG }} -> tested ok!"
+          docker run -d --rm ${{ env.LATEST_TAG }}
+          docker run ${{ env.LATEST_TAG }} echo "${{ env.LATEST_TAG }} -> tested ok!"
       ## ------------------------------
       -
         name: Build and push
