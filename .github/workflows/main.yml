@@ -11,6 +11,7 @@ on:
 
 env:
     LATEST_TAG: ${{ secrets.DOCKERHUB_USERNAME }}/windows-app
+    image_name: windows-app
 
 jobs:
   build:
@@ -26,7 +27,7 @@ jobs:
         with:
             # list of Docker images to use as base name for tags
           images: |
-            ${{ env.LATEST_TAG }}
+            ${{ env.LATEST_TAG }}/${{ env.image_name }}
           # generate Docker tags based on the following events/attributes
           tags: |
             type=schedule
