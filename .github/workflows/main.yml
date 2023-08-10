@@ -1,14 +1,13 @@
 name: ci
 on:
-  release:
-    types: [published]
   push:
-    branches: 
-      - "main"
-      - "master"
-      - "**" #any
-    # tags:
-    #   - "v*.*.*"
+    branches:
+      - '*'
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+  pull_request:
+    branches:
+      - '*'
 
 env:
     app_web: cdk
