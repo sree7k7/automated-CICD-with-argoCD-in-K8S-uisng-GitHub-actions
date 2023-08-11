@@ -51,6 +51,7 @@ jobs:
          #!/bin/bash
          git config user.email sree7k7@gmail.com
          git config user.name sree7k7
+         git pull
          echo "bulding build.shx"
          cat deployment.yaml
          echo "1"
