@@ -48,6 +48,8 @@ jobs:
         run: |
          echo "helloworld"
          #!/bin/bash
+         git config user.email sree7k7@gmail.com
+         git config user.name sree7k7
          echo "bulding build.shx"
          cat deployment.yaml
          echo "1"
