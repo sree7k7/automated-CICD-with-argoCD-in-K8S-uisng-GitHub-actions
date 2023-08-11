@@ -38,6 +38,11 @@ jobs:
             type=semver,pattern={{major}}
             # type=raw,value=sha
             type=sha
+      ## -- update script for deploy
+      - 
+        name: Run build script
+        run: ./.github/workflow/build.sh
+        shell: bash
       ## --- yo! login --
       -
         name: Login to Docker Hub
