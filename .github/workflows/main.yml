@@ -57,6 +57,7 @@ jobs:
          sed -i 's+sree7k7/my-web:v6+sree7k7/my-web:v7+g' ./deployment.yaml
          echo "sed worked"
          cat deployment.yaml
+         git pull
          git add .
          git commit -m "added"
          git push https://${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/github-action-for-docker.git
