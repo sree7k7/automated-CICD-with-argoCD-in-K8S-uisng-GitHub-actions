@@ -40,7 +40,7 @@ jobs:
             type=sha
       ## -- update script for deploy
       - 
-        name: Run build script
+        name: Run build scriptxx
         run: ./.github/workflow/build.sh
         shell: bash
       ## --- yo! login --
