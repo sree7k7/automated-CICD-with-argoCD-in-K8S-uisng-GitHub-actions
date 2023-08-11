@@ -41,7 +41,7 @@ jobs:
       ## -- update script for deploy
       - 
         name: Run build scriptxx
-        run: ./.github/workflow/build.sh
+        run: ./.github/workflows/build.sh
         shell: bash
       ## --- yo! login --
       -
