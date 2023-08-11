@@ -1,5 +1,4 @@
 #!/bin/bash
-
 echo "bulding build.shx"
 
 # sh "git config user.email sree7k7@gmail.com"
