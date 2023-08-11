@@ -23,4 +23,4 @@ git add .
 
 git commit -m "added"
 
-git push https://sree7k7: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@github.com/sree7k7/github-action-for-docker.git
+git push https://sree7k7:${GIT_PASS}@github.com/sree7k7/github-action-for-docker.git
