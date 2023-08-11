@@ -14,6 +14,6 @@ echo "1.1"
 
 sed -i 's/sree7k7/my-web:v6/sree7k7/my-web:v7/' deployment.yaml
 
-echo "2"
+echo "2.1"
 
 cat deployment.yaml
