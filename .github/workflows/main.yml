@@ -56,29 +56,29 @@ jobs:
       #   name: Run build scriptxx
       #   run: ./.github/workflows/build.sh
       #   shell: bash
-      - 
-        name: Custom script
-        run: |
-         echo "helloworld"
-         echo "pushed code ${{ steps.meta.outputs.tags }}"
-         #!/bin/bash
-         git config user.email sree7k7@gmail.com
-         git config user.name sree7k7
-         git pull
-         git config pull.rebase false
-         echo "bulding build.shx"
-         cat deployment.yaml
-         echo "1"
-         sed -i 's+sree7k7/my-web:v6+sree7k7/my-web:v8+g' ./deployment.yaml
-         echo "sed worked"
-         cat deployment.yaml
-         git pull
-         git add .
-         git commit -m "added"
-         git push https://${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/github-action-for-docker.git
+      # - 
+      #   name: Custom script
+      #   run: |
+      #    echo "helloworld"
+      #    echo "pushed code ${{ steps.meta.outputs.tags }}"
+      #    #!/bin/bash
+      #    git config user.email sree7k7@gmail.com
+      #    git config user.name sree7k7
+      #    git pull
+      #    git config pull.rebase false
+      #    echo "bulding build.shx"
+      #    cat deployment.yaml
+      #    echo "1"
+      #    sed -i 's+sree7k7/my-web:v6+sree7k7/my-web:v8+g' ./deployment.yaml
+      #    echo "sed worked"
+      #    cat deployment.yaml
+      #    git pull
+      #    git add .
+      #    git commit -m "added"
+      #    git push https://${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/github-action-for-docker.git
          
-         echo "pushed code ${{ steps.meta.outputs.tags }}"
-        shell: bash
+      #    echo "pushed code ${{ steps.meta.outputs.tags }}"
+      #   shell: bash
       ## --- yo! login --
       -
         name: Login to Docker Hub
