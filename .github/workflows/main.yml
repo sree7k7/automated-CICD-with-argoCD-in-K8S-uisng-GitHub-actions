@@ -39,19 +39,21 @@ jobs:
             # type=raw,value=sha
             type=sha
       ## -- update script for deploy
-      - 
-        name: Run build scriptxx
-        run: ./.github/workflows/build.sh
-        shell: bash
       # - 
-      #   name: Custom script
-      #   run: |
-      #    echo "helloworld"
-      #    #!/bin/bash
-      #    echo "bulding build.shx"
-      #    cat deployment.yaml
-      #    echo "1"
+      #   name: Run build scriptxx
+      #   run: ./.github/workflows/build.sh
       #   shell: bash
+      - 
+        name: Custom script
+        run: |
+         echo "helloworld"
+         #!/bin/bash
+         echo "bulding build.shx"
+         cat deployment.yaml
+         echo "1"
+         sed -i 's+sree7k7/my-web:v6+sree7k7/my-web:v7+g' ./deployment.yaml
+         
+        shell: bash
       ## --- yo! login --
       -
         name: Login to Docker Hub
