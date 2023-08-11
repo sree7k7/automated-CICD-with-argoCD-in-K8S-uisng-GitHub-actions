@@ -6,5 +6,8 @@ echo "bulding build.shx"
 # sh "git config user.name sree7k7"
 
 cat deployment.yaml
+
 echo "1"
 sed -i  's+sree7k7/my-web.*+sree7k7/my-web:${{ steps.meta.outputs.tags }}+g' deployment.yaml
+
+echo "2"
