@@ -8,11 +8,11 @@ echo "bulding build.shx"
 cat deployment.yaml
 
 echo "1"
-sed -i  's+sree7k7/my-web.*+sree7k7/my-web:${{ steps.meta.outputs.tags }}+g' deployment.yaml
+# sed -i 's+sree7k7/my-web.*+sree7k7/my-web: { steps.meta.outputs.tags }+g' deployment.yaml
 
 echo "1.1"
 
-sed -i 's/sree7k7/my-web:v6/sree7k7/my-web:v7/' deployment.yaml
+sed -i 's+sree7k7/my-web:v6/sree7k7/my-web:v7/' deployment.yaml
 
 echo "2.1"
 
