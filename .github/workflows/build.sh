@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "bulding build.shx"
 
-"git config user.email sree7k7@gmail.com"
-"git config user.name sree7k7"
+git config user.email sree7k7@gmail.com
+git config user.name sree7k7
 
 cat deployment.yaml
 
