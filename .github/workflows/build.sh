@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "bulding build.sh"
+echo "bulding build.shx"
 
 sh "git config user.email sree7k7@gmail.com"
 sh "git config user.name sree7k7"
