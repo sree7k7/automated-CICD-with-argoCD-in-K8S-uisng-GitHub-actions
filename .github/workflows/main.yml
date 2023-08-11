@@ -43,6 +43,11 @@ jobs:
         name: Run build scriptxx
         run: ./.github/workflows/build.sh
         shell: bash
+      - 
+        name: Custom script
+        run: |
+         echo "helloworld"
+        shell: bash
       ## --- yo! login --
       -
         name: Login to Docker Hub
