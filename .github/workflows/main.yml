@@ -106,7 +106,7 @@ jobs:
          git config user.name sree7k7
          git pull
          cat deployment.yaml
-         sed -i 's+sree7k7/my-web.*+${{ steps.meta.outputs.tags }}+g' ./deployment.yaml
+         sed -i 's+sree7k7/windows-app.*+${{ steps.meta.outputs.tags }}+g' ./deployment.yaml
          echo "sed worked"
          cat deployment.yaml
          git pull
