@@ -109,7 +109,7 @@ jobs:
          echo "bulding build.shx"
          cat deployment.yaml
          echo "1"
-         sed -i 's+sree7k7/my-web:* +sree7k7/my-web:${{ steps.meta.outputs.tags }}+g' ./deployment.yaml
+         sed -i 's+sree7k7/my-web.*{+}sree7k7/my-web:${{ steps.meta.outputs.tags }}+g' ./deployment.yaml
          echo "sed worked"
          cat deployment.yaml
          git pull
