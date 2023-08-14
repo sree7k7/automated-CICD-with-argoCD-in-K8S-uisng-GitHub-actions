@@ -114,6 +114,7 @@ jobs:
          cat deployment.yaml
          git pull
          git add .
+         echo "added code to commit /n"
          git commit -m "added"
          git push https://${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/github-action-for-docker.git
          
