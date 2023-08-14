@@ -18,7 +18,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: sree7k7/my-web:sree7k7/windows-app:sha-9f44293
+      - image: sree7k7/my-web:sree7k7/windows-app:sha-211f3c8:sree7k7/windows-app:sha-9f44293
         name: my-web
         resources: {}
 status: {}
