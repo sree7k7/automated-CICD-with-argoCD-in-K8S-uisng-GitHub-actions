@@ -114,7 +114,7 @@ jobs:
          cat deployment.yaml
          git pull
          git add .
-         echo "add ......"
+         echo "add ......."
          git commit -m "version - ${{ steps.meta.outputs.tags }}"
          echo "version - ${{ steps.meta.outputs.tags }}"
          git push https://${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/github-action-for-docker.git
