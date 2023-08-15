@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - image: sree7k7/windows-app:sha-436b9a6
-        name: web-app
+        name: my-web
         resources: {}
 status: {}
 ---
