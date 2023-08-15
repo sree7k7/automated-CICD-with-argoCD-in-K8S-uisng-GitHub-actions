@@ -6,7 +6,7 @@ metadata:
     app: my-webapp
   name: my-webapp-deploy
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       tier: frontend
@@ -18,7 +18,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: sree7k7/windows-app:sha-59457a7
+      - image: nginx
         name: web-app
         resources: {}
 status: {}
