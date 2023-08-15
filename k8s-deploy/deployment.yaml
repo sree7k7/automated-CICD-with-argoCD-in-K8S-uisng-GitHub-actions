@@ -18,7 +18,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: sree7k7/windows-app:sha-c1e4591
+      - image: sree7k7/windows-app:sha-c5326dd
         name: web-app
         resources: {}
 status: {}
