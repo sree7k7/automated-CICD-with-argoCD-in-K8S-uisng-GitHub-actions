@@ -23,7 +23,7 @@ permissions: write-all
         # security-events: write
         # statuses: write
 env:
-    image_name: web-app
+    image_name: windows-app
     LATEST_TAG: ${{ secrets.DOCKERHUB_USERNAME }}
 
 jobs:
