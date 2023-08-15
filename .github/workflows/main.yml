@@ -99,15 +99,13 @@ jobs:
       - 
         name: Custom script
         run: |
-         echo "helloworld"
          echo "pushed code ${{ steps.meta.outputs.tags }}"
          #!/bin/bash
          git config user.email sree7k7@gmail.com
          git config user.name sree7k7
          git pull
-         echo "git pulled the code"
          cat deployment.yaml
-         sed -i 's+sree7k7/windows-app.*+${{ steps.meta.outputs.tags }}+g' ./deployment.yaml
+         sed -i 's+sree7k7/windows-app.*+${{ steps.meta.outputs.tags }}+g' ./k8s-deploy/deployment.yaml
          echo "sed worked"
          cat deployment.yaml
          git pull
