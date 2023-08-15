@@ -36,7 +36,7 @@ env:
 
 jobs:
   build:
-    runs-on: [self-hosted, "${{ inputs.chosen-os }}"]
+    runs-on: macos-latest
     steps:
       -
         name: Checkout
