@@ -106,7 +106,7 @@ jobs:
          git config user.name sree7k7
          git pull
          cat ./k8s-deploy/deployment.yaml
-         sed -i 's+sree7k7/*.*+${{ steps.meta.outputs.tags }}+g' ./k8s-deploy/deployment.yaml
+         sed -i 's+${{ secrets.DOCKERHUB_USERNAME }}/*.*+${{ steps.meta.outputs.tags }}+g' ./k8s-deploy/deployment.yaml
          echo "sed worked"
          cat ./k8s-deploy/deployment.yaml
          git pull
