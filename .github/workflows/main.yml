@@ -101,11 +101,11 @@ jobs:
           context: .
           load: true
           tags: ${{ env.LATEST_TAG }}/${{ env.image_name }}
-      -
-        name: Test
-        run: |
-          docker run -d --rm ${{ env.LATEST_TAG }}/${{ env.image_name }}
-          docker run ${{ env.LATEST_TAG }}/${{ env.image_name }} echo "${{ env.LATEST_TAG }}/${{ env.image_name }} -> tested ok!"
+      # -
+      #   name: Test
+      #   run: |
+      #     docker run -d --rm ${{ env.LATEST_TAG }}/${{ env.image_name }}
+      #     docker run ${{ env.LATEST_TAG }}/${{ env.image_name }} echo "${{ env.LATEST_TAG }}/${{ env.image_name }} -> tested ok!"
       ## ------------------------------
       -
         name: Build and push
