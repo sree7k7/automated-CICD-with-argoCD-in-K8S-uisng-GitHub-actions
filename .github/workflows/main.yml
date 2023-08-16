@@ -65,8 +65,8 @@ jobs:
         run: |
          echo "working on pushing tag ${{ steps.meta.outputs.tags }}"
          #!/bin/bash
-         git config user.email sree7k7@gmail.com
-         git config user.name sree7k7
+         git config user.email ${{ secrets.USER_EMAIL }}
+         git config user.name ${{ secrets.GIT_USERID }}
          git pull
          cat ./k8s-deploy/deployment.yaml
          sed -i 's+${{ secrets.DOCKERHUB_USERNAME }}/*.*+${{ steps.meta.outputs.tags }}+g' ./k8s-deploy/deployment.yaml
