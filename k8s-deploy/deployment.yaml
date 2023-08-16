@@ -19,9 +19,9 @@ spec:
     spec:
       containers:
 <<<<<<< HEAD
-      - image: sree7k7/ngnx
+      - image: sree7k7/next-app:sha-185b0fe
 =======
-      - image: sree7k7/next-app:sha-01cbe39
+      - image: sree7k7/next-app:sha-185b0fe
 >>>>>>> 315df21a68442474cefc5b635e17bcee36362ffd
         name: web-app
         resources: {}
