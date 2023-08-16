@@ -37,7 +37,7 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v3
-      -
+      - # -------- tag the image -----
         name: Docker meta
         id: meta
         uses: docker/metadata-action@v4
@@ -60,7 +60,7 @@ jobs:
       #   name: Run build scriptxx
       #   run: ./.github/workflows/build.sh
       #   shell: bash
-      - 
+      - # --- script to push the image tag in configuration code ----
         name: Custom script
         run: |
          echo "working on pushing tag ${{ steps.meta.outputs.tags }}"
@@ -72,11 +72,8 @@ jobs:
          sed -i 's+${{ secrets.DOCKERHUB_USERNAME }}/*.*+${{ steps.meta.outputs.tags }}+g' ./k8s-deploy/deployment.yaml
          echo "sed worked"
          cat ./k8s-deploy/deployment.yaml
-         git pull
          git add .
-         echo "add ......."
          git commit -m "version - ${{ steps.meta.outputs.tags }}"
-         echo "version - ${{ steps.meta.outputs.tags }}"
          git push https://${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/github-action-for-docker.git
          
          echo "pushed code ${{ steps.meta.outputs.tags }}"
