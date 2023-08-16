@@ -110,29 +110,7 @@ Create the changes with kubectl:
 Any updates and changes:
 `kubectl replace -f application.yaml --force`
 
-## Docker playground
 
-- Build a docker file [Dockerfile](docker/Dockerfile).
-- Make sure you have [web-app.html](app-configuration-code/app-source-code/web-app.html) on the same path as Dockerfile.
-- Build the image with name and tag:
-
-tag: `docker image tag userid/image:tag` (e.g: `docker image tag ngnx sree7k7/ngnx`)
-
-build: `docker build -t my-web:v1 .`
-- push the image:
-`docker push <username>/my-web:v1`
-
-> Note: Change the <username> with your `hub.docker.com`.
-
-Update the yaml manifest file with new image and tag:
-
-    spec:
-      containers:
-      - image: sree7k7/my-web:v6 #image name:tag
-        name: my-web
-        resources: {}
-
-After, update the code: `kubectl replace -f deployment.yaml --force`
 
 ## Clean up
 
