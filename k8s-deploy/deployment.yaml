@@ -6,7 +6,7 @@ metadata:
     app: my-webapp
   name: my-webapp-deploy
 spec:
-  replicas: 5
+  replicas: 20
   selector:
     matchLabels:
       tier: frontend
