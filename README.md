@@ -4,10 +4,11 @@
   - [Purpose](#purpose)
   - [Prerequsites](#prerequsites)
   - [Repository](#repository)
+  - [Github secrets](#github-secrets)
   - [Install Argocd](#install-argocd)
     - [Login in to Argo CD UI](#login-in-to-argo-cd-ui-user-interface) 
     - [ArgoCD application manifest file](#argocd-application-manifest-file)
-  - [Docker playground](#docker-playground)
+  - [Docker token](#docker-playground)
   - [Clean up](#clean-up)
 
 ## Purpose
@@ -31,6 +32,37 @@ Create a fully automated cd pipeline using argocd in kubernetes.
   - Note: This code acts as source code for your (web) application.
 
 4. Later, push the code to repository :octocat: .
+
+### Github secrets
+
+#### DockerHub Token
+
+1. Sign in to **Docker Hub**.
+
+2. Select your **username** in the top-right corner and from the drop-down menu select **Account Settings**.
+
+3. Click the **Security** tab and then **New Access Token**. copy token.
+
+4. In GitHub, Goto → select: repo → setting → click: Secrets and variables → click: New repository secret (Name: *DOCKERHUB_TOKEN* and Secret: copy step 3 token).
+
+#### DockerHub username
+1. In GitHub, Goto → select: repo → setting → click: Secrets and variables → click: New repository secret (Name: *DOCKERHUB_USERNAME* and Secret: <dockerhub_username>).
+
+#### GitHub userID
+
+1. In GitHub, Goto → select: repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_USERID* and Secret: <github_username>).
+
+#### GitHub user email
+1. In GitHub, Goto → select: repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_USER_EMAIL* and Secret: <github_email>).
+
+
+#### GitHub passwd (Fine-grained personal access tokens)
+
+1. In GitHub, Select your username in the top-right corner and from the drop-down menu select **Settings**.
+
+2. On left pane → click: Developer setting → personal access tokens → Fine-grained tokens → Generate new token → give details: token name, expire, select repo, generate token. Copy token (used in step 3).
+
+3. In GitHub, Goto → select: repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_PASS* and Secret: <copy token from step 3>).
 
 ## Install Argocd
 
