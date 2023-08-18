@@ -25,11 +25,15 @@ Create a fully automated cd pipeline using argocd in kubernetes.
 
 ## Repository 
 
-1. Create a github repository (app-configuration-code) and clone the repo (means empty repo).
+1. Create a github repository (**app-configuration-code**) and clone the repo (means empty repo). 
+    - Keep your k8s deployment code in this repo.
 2. After cloning, create folder `dev-env`. Add your configuration manifest file ([deployment.yaml](k8s-deploy/deployment.yaml)).
-3. Create a github repository (app-source-code) and clone the repo (means empty repo). Add your application code ([web-app.html](web-app.html))
-
-  - Note: This code acts as source code for your (web) application.
+3. Create a github repository (**app-source-code**) and clone the repo (means empty repo). Add your application code ([web-app.html](web-app.html)).
+4. Create the workflow with GitHub actions on repo: *app-source-code*
+    - Go to → repository: *app-source-code* on GitHub and then select the Actions tab.
+    - Select set up a workflow yourself. It will create GitHub actions `.github/workflows/main.yml`
+![Alt text](design/workflow.png)
+    - Note: This code acts as source code for your (web) application.
 
 4. Later, push the code to repository :octocat: .
 
@@ -56,13 +60,15 @@ Create a fully automated cd pipeline using argocd in kubernetes.
 1. In GitHub, Goto → select: repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_USER_EMAIL* and Secret: <github_email>).
 
 
-#### GitHub passwd (Fine-grained personal access tokens)
+#### GitHub passwd ([Fine-grained personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens))
 
 1. In GitHub, Select your username in the top-right corner and from the drop-down menu select **Settings**.
 
 2. On left pane → click: Developer setting → personal access tokens → Fine-grained tokens → Generate new token → give details: token name, expire, select repo, generate token. Copy token (used in step 3).
 
 3. In GitHub, Goto → select: repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_PASS* and Secret: <copy token from step 3>).
+
+4. Set your [permissions](https://docs.github.com/en/rest/overview/permissions-required-for-fine-grained-personal-access-tokens?apiVersion=2022-11-28).
 
 ## Install Argocd
 
@@ -119,7 +125,7 @@ metadata:
 spec:
   project: default # default namespace. i.e, your deployment created in default namespace
   source:
-    repoURL: https://github.com/sree7k7/k8s #github repo url
+    repoURL: https://github.com/<gituserid>/repo #github repo url
     targetRevision: HEAD
     path: <folder> #e.g dev-env #git folder, where the code lies.
   destination:
