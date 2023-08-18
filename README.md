@@ -30,7 +30,7 @@ Create a fully automated CI/CD pipeline with argocd in kubernetes using GitHub a
 2. After cloning, create folder `dev`. Add your configuration manifest file ([deployment.yaml](k8s-deploy/deployment.yaml)).
 3. Create a github repository (**app-source-code**) and clone the repo (means empty repo). Add your application code ([web-app.html](web-app.html)).
 4. Create the workflow with GitHub actions on repo: *app-source-code*
-    - Go to → repository: *app-source-code* on GitHub and then select the Actions tab.
+    - Go to → repository: *app-source-code* on GitHub and then select the **Actions** tab.
     - Select set up a workflow yourself. It will create GitHub actions `.github/workflows/main.yml`
 ![Alt text](design/workflow.png)
     - Add [code](.github/workflows/main.yml) to mail.yaml file.
@@ -38,7 +38,7 @@ Create a fully automated CI/CD pipeline with argocd in kubernetes using GitHub a
     ```bash
     env:
     image_name: <imagename> # the tag is will create automatically in deployment.yaml
-    github_repo: <github repo name> # k8s delpoyment code
+    github_repo: <github repo name> # k8s delpoyment code i,e repository name created in step 1.
     deploy_path: <path of manifest file> # e.g: /k8s-deploy/deployment.yaml
     ```
 
@@ -48,7 +48,7 @@ Create a fully automated CI/CD pipeline with argocd in kubernetes using GitHub a
 
 ### Github secrets
 
-Create necessary (*custom*) secrets to access tokens, userId's, email etx!
+Create necessary (*desired*) secrets to access tokens, userId's, email etx!
 ![Alt text](design/secrets_and_variables.png)
 #### DockerHub Token
 
