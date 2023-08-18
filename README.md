@@ -13,7 +13,7 @@
 
 ## Purpose
 
-Create a fully automated cd pipeline using argocd in kubernetes.
+Create a fully automated CI/CD pipeline with argocd in kubernetes using GitHub and GitOps.
 
 ![design](design/design.png)
 ## Prerequsites
@@ -43,6 +43,8 @@ Create a fully automated cd pipeline using argocd in kubernetes.
     ```
 
 5. Later, push the code to repository :octocat:.
+
+> Note: Before you push the code, pull the code as the deployment `image:tag` is updated by GitHub actions.
 
 ### Github secrets
 
