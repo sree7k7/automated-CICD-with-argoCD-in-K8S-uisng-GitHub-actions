@@ -26,6 +26,7 @@ permissions: write-all
 env:
     image_name: next-app
     github_repo: github-action-for-docker
+    deploy_path: /k8s-deploy/deployment.yaml
 
 jobs:
   build:
@@ -63,18 +64,18 @@ jobs:
       - # --- script to push the image tag in configuration code ----
         name: Custom script
         run: |
-         echo "working on pushing tag ${{ steps.meta.outputs.tags }}"
+
          #!/bin/bash
          git config user.email ${{ secrets.USER_EMAIL }}
          git config user.name ${{ secrets.GIT_USERID }}
          git pull
-         cat ./k8s-deploy/deployment.yaml
-         sed -i 's+${{ secrets.DOCKERHUB_USERNAME }}/*.*+${{ steps.meta.outputs.tags }}+g' ./k8s-deploy/deployment.yaml
+         # cat ./k8s-deploy/deployment.yaml
+         sed -i 's+${{ secrets.DOCKERHUB_USERNAME }}/*.*+${{ steps.meta.outputs.tags }}+g' .${{ env.deploy_path }}
          echo "sed worked"
-         cat ./k8s-deploy/deployment.yaml
+         # cat ./k8s-deploy/deployment.yaml
          git add .
          git commit -m "version - ${{ steps.meta.outputs.tags }}"
-         git push https://${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/github-action-for-docker.git
+         git push https://${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.github_repo }}.git
          
          echo "pushed code ${{ steps.meta.outputs.tags }}"
         shell: bash

@@ -34,7 +34,13 @@ Create a fully automated cd pipeline using argocd in kubernetes.
     - Select set up a workflow yourself. It will create GitHub actions `.github/workflows/main.yml`
 ![Alt text](design/workflow.png)
     - Add [code](.github/workflows/main.yml) to mail.yaml file.
-    - change the necessary
+    - change the necessary env variable in main.yaml:
+    ```
+    env:
+    image_name: <imagename>
+    github_repo: <github repo name> # k8s delpoyment code
+    deploy_path: <path of manifest file> # e.g: /k8s-deploy/deployment.yaml
+    ```
 
 4. Later, push the code to repository :octocat: .
 
