@@ -68,14 +68,16 @@ jobs:
          #!/bin/bash
          git config user.email ${{ secrets.USER_EMAIL }}
          git config user.name ${{ secrets.GIT_USERID }}
+         git clone https://${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.github_repo }}.git
          git pull
-         # cat ./k8s-deploy/deployment.yaml
+         cat .${{ env.deploy_path }}
          sed -i 's+${{ secrets.DOCKERHUB_USERNAME }}/*.*+${{ steps.meta.outputs.tags }}+g' .${{ env.deploy_path }}
-         echo "sed worked"
-         # cat ./k8s-deploy/deployment.yaml
+         cat .${{ env.deploy_path }}
+         git config user.email ${{ secrets.GIT_USER_EMAIL }}
+         git config user.name ${{ secrets.GIT_USERID }}
          git add .
          git commit -m "version - ${{ steps.meta.outputs.tags }}"
-         git push https://${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.github_repo }}.git
+         git push https://${{ secrets.GIT_USERID }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.github_repo }}.git
          
          echo "pushed code ${{ steps.meta.outputs.tags }}"
         shell: bash

@@ -42,7 +42,7 @@ Create a fully automated cd pipeline using argocd in kubernetes.
     deploy_path: <path of manifest file> # e.g: /k8s-deploy/deployment.yaml
     ```
 
-4. Later, push the code to repository :octocat:.
+5. Later, push the code to repository :octocat:.
 
 ### Github secrets
 
@@ -156,6 +156,40 @@ Create the changes with kubectl:
 
 Any updates and changes:
 `kubectl replace -f application.yaml --force`
+
+## workflow
+
+Use the [main.yaml](.github/workflows/main.yml) and change the default. 
+
+If you have mulitple repos:
+
+- Change the custom script with below code:
+
+As the code will connect to: github_repo: <github repo name> # k8s delpoyment code, using the [PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
+```
+      - # --- script to push the image tag in configuration code ----
+        name: Custom script
+        run: |
+
+         #!/bin/bash
+         git config user.email ${{ secrets.GIT_USER_EMAIL }}
+         git config user.name ${{ secrets.GIT_USERID }}
+         git clone https://${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.GIT_APPCODE_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.github_repo }}.git
+         git pull
+         cat .${{ env.deploy_path }}
+         sed -i 's+${{ secrets.DOCKERHUB_USERNAME }}/*.*+${{ steps.meta.outputs.tags }}+g' .${{ env.deploy_path }}
+         cat .${{ env.deploy_path }}
+         git config user.email ${{ secrets.GIT_USER_EMAIL }}
+         git config user.name ${{ secrets.GIT_USERID }}
+         git add .
+         git commit -m "version - ${{ steps.meta.outputs.tags }}"
+         git push https://${{ secrets.GIT_USERID }}:${{ secrets.GIT_APPCODE_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.github_repo }}.git
+         
+         echo "pushed code ${{ steps.meta.outputs.tags }}"
+        shell: bash
+```
+
 
 ## Clean up
 
