@@ -8,7 +8,7 @@
   - [Install Argocd](#install-argocd)
     - [Login in to Argo CD UI](#login-in-to-argo-cd-ui-user-interface) 
     - [ArgoCD application manifest file](#argocd-application-manifest-file)
-  - [Docker token](#docker-playground)
+  - [Workflow](#workflow)
   - [Clean up](#clean-up)
 
 ## Purpose
@@ -193,10 +193,11 @@ As the code will connect to: github_repo: <github repo name> # k8s delpoyment co
 
 ## Clean up
 
-- In terminal execute the following command:
+In terminal execute the following command:
 
 ```docker
 kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
-After, in terminal execute, `kubectl get all -n argocd`
-- expected result: No resources found in argocd namespace.
+To verify: in terminal execute, `kubectl get all -n argocd`
+
+Expected result: `No resources found in argocd namespace`.
