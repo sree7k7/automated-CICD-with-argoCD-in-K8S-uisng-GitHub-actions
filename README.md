@@ -27,27 +27,27 @@ Create a fully automated cd pipeline using argocd in kubernetes.
 
 1. Create a github repository (**app-configuration-code**) and clone the repo (means empty repo). 
     - Keep your k8s deployment code in this repo.
-2. After cloning, create folder `dev-env`. Add your configuration manifest file ([deployment.yaml](k8s-deploy/deployment.yaml)).
+2. After cloning, create folder `dev`. Add your configuration manifest file ([deployment.yaml](k8s-deploy/deployment.yaml)).
 3. Create a github repository (**app-source-code**) and clone the repo (means empty repo). Add your application code ([web-app.html](web-app.html)).
 4. Create the workflow with GitHub actions on repo: *app-source-code*
     - Go to → repository: *app-source-code* on GitHub and then select the Actions tab.
     - Select set up a workflow yourself. It will create GitHub actions `.github/workflows/main.yml`
 ![Alt text](design/workflow.png)
     - Add [code](.github/workflows/main.yml) to mail.yaml file.
-    - change the necessary env variable in main.yaml:
-    ```
+    - change the necessary env variable in [main.yaml](.github/workflows/main.yml):
+    ```bash
     env:
-    image_name: <imagename>
+    image_name: <imagename> # the tag is will create automatically in deployment.yaml
     github_repo: <github repo name> # k8s delpoyment code
     deploy_path: <path of manifest file> # e.g: /k8s-deploy/deployment.yaml
     ```
 
-4. Later, push the code to repository :octocat: .
+4. Later, push the code to repository :octocat:.
 
 ### Github secrets
 
-Create necessary secrets to access tokens, userId's, email etx!
-
+Create necessary (*custom*) secrets to access tokens, userId's, email etx!
+![Alt text](design/secrets_and_variables.png)
 #### DockerHub Token
 
 1. Sign in to **Docker Hub**.
@@ -56,17 +56,17 @@ Create necessary secrets to access tokens, userId's, email etx!
 
 3. Click the **Security** tab and then **New Access Token**. copy token.
 
-4. In GitHub, Goto → select: repo → setting → click: Secrets and variables → click: New repository secret (Name: *DOCKERHUB_TOKEN* and Secret: copy step 3 token).
+4. In GitHub, Goto → repo → setting → click: Secrets and variables → click: New repository secret (Name: *DOCKERHUB_TOKEN* and Secret: copy step 3 token).
 
 #### DockerHub username
-1. In GitHub, Goto → select: repo → setting → click: Secrets and variables → click: New repository secret (Name: *DOCKERHUB_USERNAME* and Secret: <dockerhub_username>).
+1. In GitHub, Goto → repo → setting → click: Secrets and variables → click: New repository secret (Name: *DOCKERHUB_USERNAME* and Secret: <dockerhub_username>).
 
 #### GitHub userID
 
-1. In GitHub, Goto → select: repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_USERID* and Secret: <github_username>).
+1. In GitHub, Goto → repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_USERID* and Secret: <github_username>).
 
 #### GitHub user email
-1. In GitHub, Goto → select: repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_USER_EMAIL* and Secret: <github_email>).
+1. In GitHub, Goto → repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_USER_EMAIL* and Secret: <github_email>).
 
 
 #### GitHub passwd ([Fine-grained personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens))
@@ -156,8 +156,6 @@ Create the changes with kubectl:
 
 Any updates and changes:
 `kubectl replace -f application.yaml --force`
-
-
 
 ## Clean up
 
