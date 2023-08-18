@@ -107,7 +107,7 @@ jobs:
       #   run: |
       #     docker run -d --rm ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.image_name }}
       #     docker run ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.image_name }} echo "${{ secrets.DOCKERHUB_USERNAME }}/${{ env.image_name }} -> tested ok!"
-      ## ------------------------------
+
       -
         name: Build and push
         uses: docker/build-push-action@v4
