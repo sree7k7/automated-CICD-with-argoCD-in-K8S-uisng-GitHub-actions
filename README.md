@@ -33,11 +33,14 @@ Create a fully automated cd pipeline using argocd in kubernetes.
     - Go to → repository: *app-source-code* on GitHub and then select the Actions tab.
     - Select set up a workflow yourself. It will create GitHub actions `.github/workflows/main.yml`
 ![Alt text](design/workflow.png)
-    - Note: This code acts as source code for your (web) application.
+    - Add [code](.github/workflows/main.yml) to mail.yaml file.
+    - change the necessary
 
 4. Later, push the code to repository :octocat: .
 
 ### Github secrets
+
+Create necessary secrets to access tokens, userId's, email etx!
 
 #### DockerHub Token
 
