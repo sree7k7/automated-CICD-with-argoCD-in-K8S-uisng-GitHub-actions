@@ -70,7 +70,9 @@ jobs:
          git config user.name ${{ secrets.GIT_USERID }}
          git clone https://${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.github_repo }}.git
          git pull
+         ls
          cd ${{ env.github_repo }}
+         echo "cd to${{ env.github_repo }}"
          ls
          cat .${{ env.deploy_path }}
          sed -i 's+${{ secrets.DOCKERHUB_USERNAME }}/*.*+${{ steps.meta.outputs.tags }}+g' .${{ env.deploy_path }}
