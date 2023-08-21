@@ -11,7 +11,7 @@ metadata:
 spec:
   project: default # default namespace. i.e, your deployment created in default namespace
   source:
-    repoURL: https://github.com/sree7k7/app-config-code-kubernetes #github repo url, k8s deployment file
+    repoURL: https://github.com/sree7k7/k8s-config-code #github repo url, k8s deployment file
     targetRevision: HEAD
     path: deploy #e.g dev-env #git folder, where the code lies.
   destination:
