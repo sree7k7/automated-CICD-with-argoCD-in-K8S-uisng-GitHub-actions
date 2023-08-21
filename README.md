@@ -75,7 +75,7 @@ Create necessary (*desired*) secrets to access tokens, userId's, email etx!
 
 1. In GitHub, Select your username in the top-right corner and from the drop-down menu select **Settings**.
 
-2. On left pane → click: Developer setting → personal access tokens → Fine-grained tokens → Generate new token → give details: token name, expire, select repo, generate token. Copy token (used in step 3).
+2. On left pane → click: Developer setting → personal access tokens → Fine-grained tokens → Generate new token → give details: token name, expire, select repo, generate token. Copy token (use in step 3).
 
 3. In GitHub, Goto → select: repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_PASS* and Secret: <copy token from step 3>).
 
