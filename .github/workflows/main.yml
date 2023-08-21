@@ -68,7 +68,7 @@ jobs:
          #!/bin/bash
          git config user.email ${{ secrets.USER_EMAIL }}
          git config user.name ${{ secrets.GIT_USERID }}
-         git clone https://${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.github_repo }}.git
+         git clone https://${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.GIT_REPO_K8S_CONFIG_CODE }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.github_repo }}.git
          git pull
          ls
          cd ${{ env.github_repo }}
