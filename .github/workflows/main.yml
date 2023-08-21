@@ -79,7 +79,7 @@ jobs:
          cat .${{ env.deploy_path }}
          git config user.email ${{ secrets.GIT_USER_EMAIL }}
          git config user.name ${{ secrets.GIT_USERID }}
-         echo ""
+         echo "git loginn"
          git add .
          git commit -m "version - ${{ steps.meta.outputs.tags }}"
          git push https://${{ secrets.GIT_USERID }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.github_repo }}.git
