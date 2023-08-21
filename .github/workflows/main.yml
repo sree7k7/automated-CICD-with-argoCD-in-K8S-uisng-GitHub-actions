@@ -90,7 +90,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      ## ---- create and boot a builder
+      ## ---- create and boot a builder ---
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
