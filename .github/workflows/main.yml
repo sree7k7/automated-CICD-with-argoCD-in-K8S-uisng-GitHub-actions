@@ -82,7 +82,7 @@ jobs:
          echo "git loginn"
          git add .
          git commit -m "version - ${{ steps.meta.outputs.tags }}"
-         git push https://${{ secrets.GIT_USERID }}:${{ secrets.GIT_PASS }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.github_repo }}.git
+         git push https://${{ secrets.GIT_USERID }}:${{ secrets.GIT_REPO_K8S_CONFIG_CODE }}@github.com/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.github_repo }}.git
          
          echo "pushed code ${{ steps.meta.outputs.tags }}"
         shell: bash
