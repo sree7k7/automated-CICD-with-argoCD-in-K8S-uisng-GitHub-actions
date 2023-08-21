@@ -85,7 +85,7 @@ jobs:
          
          echo "pushed code ${{ steps.meta.outputs.tags }}"
         shell: bash
-      ## --- yo! login --
+      ## --- yo! login ---
       -
         name: Login to Docker Hub
         if: github.event_name != 'pull_request'
