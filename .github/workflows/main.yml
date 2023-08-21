@@ -25,8 +25,8 @@ permissions: write-all
         # statuses: write
 env:
     image_name: next-app
-    github_repo: k8s-config-code
-    deploy_path: /deploy/deployment.yaml
+    github_repo: automated-CICD-with-argoCD-in-K8S-uisng-GitHub-actions
+    deploy_path: /k8s-deploy/deployment.yaml 
 
 jobs:
   build:
