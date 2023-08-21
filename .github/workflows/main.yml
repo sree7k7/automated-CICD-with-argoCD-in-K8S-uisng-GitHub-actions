@@ -78,7 +78,7 @@ jobs:
          sed -i 's+${{ secrets.DOCKERHUB_USERNAME }}/*.*+${{ steps.meta.outputs.tags }}+g' .${{ env.deploy_path }}
          cat .${{ env.deploy_path }}
          echo "cat done!"
-         git config user.email ${{ secrets.GIT_USER_EMAIL }}
+         git config user.email ${{ secrets.USER_EMAIL }}
          git config user.name ${{ secrets.GIT_USERID }}
          echo "git loginn"
          git add .
