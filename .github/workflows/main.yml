@@ -25,8 +25,8 @@ permissions: write-all
         # statuses: write
 env:
     image_name: next-app
-    github_repo: github-action-for-docker # repo for k8s configuration file
-    deploy_path: /k8s-deploy/deployment.yaml
+    github_repo: app-config-code-kubernetes # repo for k8s configuration file
+    deploy_path: /deployment.yaml
 
 jobs:
   build:
