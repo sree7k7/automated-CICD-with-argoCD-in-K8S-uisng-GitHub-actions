@@ -19,7 +19,7 @@ Create a fully automated CI/CD pipeline with argocd in kubernetes using GitHub a
 ## Prerequsites
 
 - [argocd](https://argo-cd.readthedocs.io/en/stable/getting_started/).
-- [GitHub Actions](https://docs.docker.com/build/ci/github-actions/)
+- [GitHub Actions](https://docs.docker.com/build/ci/github-actions/).
 - [kind](https://kind.sigs.k8s.io/docs/user/quick-start/) or [minikube](https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro/).
 - [docker](https://www.docker.com/), [docker push](https://docs.docker.com/engine/reference/commandline/push/).
 
@@ -31,7 +31,7 @@ Create a fully automated CI/CD pipeline with argocd in kubernetes using GitHub a
 3. Create a github repository (**app-source-code**) and clone the repo (means empty repo). Add your application code ([web-app.html](web-app.html)).
 4. Create the workflow with GitHub actions on repo: *app-source-code*
     - Go to → repository: *app-source-code* on GitHub and then select the **Actions** tab.
-    - Select set up a workflow yourself. It will create GitHub actions `.github/workflows/main.yml`
+    - Select set up a workflow yourself. It will create GitHub actions `.github/workflows/main.yml`.
 ![Alt text](design/workflow.png)
     - Add [code](.github/workflows/main.yml) to mail.yaml file.
     - change the necessary env variable in [main.yaml](.github/workflows/main.yml):
@@ -58,17 +58,17 @@ Create necessary (*desired*) secrets to access tokens, userId's, email etx!
 
 3. Click the **Security** tab and then **New Access Token**. copy token.
 
-4. In GitHub, Goto → repo → setting → click: Secrets and variables → click: New repository secret (Name: *DOCKERHUB_TOKEN* and Secret: copy step 3 token).
+4. In GitHub, Goto → repo → setting → click: Secrets and variables → click: New repository secret (Name: *DOCKERHUB_TOKEN* and Secret: *copy step 3 token*).
 
 #### DockerHub username
-1. In GitHub, Goto → repo → setting → click: Secrets and variables → click: New repository secret (Name: *DOCKERHUB_USERNAME* and Secret: <dockerhub_username>).
+1. In GitHub, Goto → repo → setting → click: Secrets and variables → click: New repository secret (Name: *DOCKERHUB_USERNAME* and Secret: <*dockerhub_username*>).
 
 #### GitHub userID
 
-1. In GitHub, Goto → repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_USERID* and Secret: <github_username>).
+1. In GitHub, Goto → repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_USERID* and Secret: <*github_username*>).
 
 #### GitHub user email
-1. In GitHub, Goto → repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_USER_EMAIL* and Secret: <github_email>).
+1. In GitHub, Goto → repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_USER_EMAIL* and Secret: <*github_email*>).
 
 
 #### GitHub passwd ([Fine-grained personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens))
@@ -77,7 +77,7 @@ Create necessary (*desired*) secrets to access tokens, userId's, email etx!
 
 2. On left pane → click: Developer setting → personal access tokens → Fine-grained tokens → Generate new token → give details: token name, expire, select repo, generate token. Copy token (use in step 3).
 
-3. In GitHub, Goto → select: repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_PASS* and Secret: <copy token from step 3>).
+3. In GitHub, Goto → select: repo → setting → click: Secrets and variables → click: New repository secret (Name: *GIT_PASS* and Secret: <*copy token from step 3*>).
 
 4. Set your [permissions](https://docs.github.com/en/rest/overview/permissions-required-for-fine-grained-personal-access-tokens?apiVersion=2022-11-28).
 
@@ -112,7 +112,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o yaml
 echo -n "ODkxc3dmSHdyeUZxxxxx==" | base64 --decode
 ```
 
-### ArgoCD application manifest file:
+### ArgoCD application manifest file
 
 Execute the below code in cluster for [application](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/) spec for argocd.
 
@@ -159,15 +159,13 @@ Create the changes with kubectl:
 Any updates and changes:
 `kubectl replace -f application.yaml --force`
 
-## workflow
+## Workflow
 
 Use the [main.yaml](.github/workflows/main.yml) and change the default. 
 
-If you have mulitple repos:
+If you have mulitple repos. Change the custom script with below code:
 
-- Change the custom script with below code:
-
-As the code will connect to: github_repo: <github repo name> # k8s delpoyment code, using the [PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+As the code will connect to: github_repo: <github repo name> # k8s delpoyment code, using the [PAT].(https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 
 ```shell
       - # --- script to push the image tag in configuration code ----
