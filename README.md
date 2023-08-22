@@ -18,10 +18,10 @@ Create a fully automated CI/CD pipeline with argocd in kubernetes using GitHub a
 ![design](design/design.png)
 ## Prerequsites
 
-- [argocd](https://argo-cd.readthedocs.io/en/stable/getting_started/).
+- [Argocd](https://argo-cd.readthedocs.io/en/stable/getting_started/).
 - [GitHub Actions](https://docs.docker.com/build/ci/github-actions/).
 - [kind](https://kind.sigs.k8s.io/docs/user/quick-start/) or [minikube](https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro/).
-- [docker](https://www.docker.com/), [docker push](https://docs.docker.com/engine/reference/commandline/push/).
+- [Docker](https://www.docker.com/), [docker push](https://docs.docker.com/engine/reference/commandline/push/).
 
 ## Repository 
 
@@ -165,10 +165,10 @@ Use the [main.yaml](.github/workflows/main.yml) and change the default.
 
 If you have mulitple repos. Change the custom script with below code:
 
-As the code will connect to: github_repo: <github repo name> # k8s delpoyment code, using the [PAT].(https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+As the code will connect to: github_repo: <github repo name> # k8s delpoyment code, using the [PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 
 ```shell
-      - # --- script to push the image tag in configuration code ----
+      - # --- script to push the image tag in configuration code ---
         name: Custom script
         run: |
 
