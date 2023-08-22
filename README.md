@@ -122,7 +122,7 @@ Execute the below code in cluster for [application](https://argo-cd.readthedocs.
 - server: (cluster endpoint)
 - namespace
 
-```bash
+```shell
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
