@@ -169,7 +169,7 @@ If you have mulitple repos:
 
 As the code will connect to: github_repo: <github repo name> # k8s delpoyment code, using the [PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 
-```bash
+```shell
       - # --- script to push the image tag in configuration code ----
         name: Custom script
         run: |
