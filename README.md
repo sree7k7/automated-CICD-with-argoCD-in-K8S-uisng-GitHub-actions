@@ -13,7 +13,7 @@
 
 ## Purpose
 
-Create a fully automated CI/CD pipeline with argocd in kubernetes using GitHub and GitOps.
+To establish a robust, fully automated Continuous Integration and Continuous Deployment (CI/CD) pipeline within a Kubernetes environment, leveraging ArgoCD and GitHub Actions to implement GitOps principles for efficient and reliable software delivery.
 
 ![design](design/design.png)
 ## Prerequsites
