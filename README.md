@@ -1,4 +1,4 @@
-# Deploy automated kubernetes cluster with ArgoCD using GitOps, GitHub actions
+# Deploy automated kubernetes cluster with ArgoCD using GitOps, GitHub Actions
 
 ## Run
   - [Purpose](#purpose)
@@ -20,7 +20,7 @@ To establish a robust, fully automated Continuous Integration and Continuous Dep
 
 - [Argocd](https://argo-cd.readthedocs.io/en/stable/getting_started/).
 - [GitHub Actions](https://docs.docker.com/build/ci/github-actions/).
-- [kind](https://kind.sigs.k8s.io/docs/user/quick-start/) or [minikube](https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro/).
+- [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/) or [Minikube](https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro/).
 - [Docker](https://www.docker.com/), [docker push](https://docs.docker.com/engine/reference/commandline/push/).
 
 ## Repository 
